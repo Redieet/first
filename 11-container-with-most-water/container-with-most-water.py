@@ -4,21 +4,19 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        left, right = 0, len(height) - 1  # Initialize two pointers
-        max_area = 0  # Variable to store the maximum area
+        left, right = 0, len(height) - 1
+        max_area = 0
 
         while left < right:
-            # Calculate the current area
-            current_area = (right - left) * min(height[left], height[right])
-            # Update max_area if the current area is larger
-            max_area = max(max_area, current_area)
-
-            # Move the pointer pointing to the shorter line inward
+            # Calculate the current area and update max_area in a single step
             if height[left] < height[right]:
+                max_area = max(max_area, (right - left) * height[left])
                 left += 1
             else:
+                max_area = max(max_area, (right - left) * height[right])
                 right -= 1
 
         return max_area
+
 
         

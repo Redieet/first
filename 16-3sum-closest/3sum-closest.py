@@ -1,7 +1,5 @@
-from typing import List
-
 class Solution:
-    def threeSumClosest(self, nums: List[int], target: int) -> int:
+    def threeSumClosest(self, nums: list[int], target: int) -> int:
         # Sort the array to use the two-pointer technique
         nums.sort()
         closest_sum = float('inf')  # Initialize with a large value
@@ -28,3 +26,4 @@ class Solution:
                     right -= 1
 
         return closest_sum
+
